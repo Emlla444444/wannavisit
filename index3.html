@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let's blow candles.. 🎂 🍰</title>
+    <style>
+        body{
+            background: rgb(3, 3, 3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .cake{
+            width: 200px;
+            height: 150px;
+            background: #921d1d;
+            border-radius: 0 0 20px 20px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0,2);
+        }
+        .candle{
+            width: 10px;
+            height: 40px;
+            background: rgb(233, 163, 233);
+            position: absolute;
+            top: -40px;
+            border-radius: 2px;
+        }
+        .candle:nth-child(1) { left: 50px}
+        .candle:nth-child(2) { left: 95px}
+        .candle:nth-child(3) { left: 140px}
+
+        .flame {
+            width: 10px;
+            height: 15px;
+            background: orange;
+            position: absolute;
+            top: -15px;
+            left: 0;
+            border-radius: 50% 50% 50% 50%;
+            animation: flicker 0.2s infinite;
+            transform-origin: center bottom;
+        }
+        @keyframes flicker {
+            0% { transform: scale(1) rotate(0deg);}
+            50% { transform: scale(1.1) rotate(5deg);}
+            100% { transform: scale(1) rotate(-5deg);}
+        }
+        .flame.off {
+            display: none;
+        }
+        .btn{
+            position: absolute;
+            top: 250px;
+            padding: 10px 20px;
+            background: #333;
+            color: #fff;
+            cursor: pointer;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="cake">
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+    </div>
+
+    <div class="btn" onclick="blowcandles()">Click^.^</div>
+
+    <script>
+        function blowcandles() {
+            document.querySelectorAll('.flame').forEach(f => f.classList.add('off'));
+        }
+    </script>
+</body>
+</html>
